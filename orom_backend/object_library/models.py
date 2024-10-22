@@ -41,6 +41,7 @@ class ReferenceRobot(AbstractReference):
     TODO: Make some objects only available for the user who uploaded it
     """
     num_joints = models.IntegerField()
+    joint_names = models.JSONField(default=list)
 
     def __str__(self):
         return f"ReferenceRobot: {self.name} of type {self.file_type}"

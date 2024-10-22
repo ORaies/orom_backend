@@ -42,6 +42,7 @@ class Robot(AbstractObject):
     """
     robot_reference = models.ForeignKey(ReferenceRobot, on_delete=models.CASCADE)
     joint_angles = ArrayField(models.FloatField(), null=True, blank=True)
+    sim_websocket_url = models.CharField(max_length=255, null=True, blank=True)
 
     def __str__(self):
         return f"Robot: {self.name} ({self.robot_reference.name}) of Scene {self.scene_id.name}"

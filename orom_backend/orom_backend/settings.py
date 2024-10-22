@@ -30,7 +30,7 @@ SECRET_KEY = "fr8+v6w)lokun#5qtt4-aao=g4*ee7$==97h=kzb1358*jn!y8"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["localhost"]
 
 
 # Application definition
@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    
+    'corsheaders',
     'object_library',
     'scene_manager',
 ]
@@ -56,6 +56,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+
 ]
 
 ROOT_URLCONF = 'orom_backend.urls'
@@ -145,3 +147,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #! this is only valid for development. In production the static files should be handled by a cloud storage or nginx running in an own container
 MEDIA_URL = 'media/'
 MEDIA_ROOT = '/app/object_files/'
+
+CORS_ALLOW_ALL_ORIGINS = True  # For development only. Should be removed in production
